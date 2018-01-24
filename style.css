@@ -1,0 +1,658 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#video-container
+{
+    
+    width: 100%;
+    height: 950px;
+    overflow: hidden;
+    position: relative;
+}
+
+#video-container video{
+    min-width: 100%;
+    min-height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: auto;
+    height: auto;
+    z-index: -150;
+    
+        
+}
+
+
+@media (min-aspect-ratio: 16/9){
+    .video{
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media (max-aspect-ratio: 16/9){
+    .video
+        width: auto;
+        height: 100%;
+}
+
+
+
+/* ANIMATION TITLE ANA */
+
+
+.titleWrapper{
+	position:absolute;
+	top:0;
+	left:0;
+	right:0;
+	bottom:0;
+	margin: auto;
+	text-align:center;
+	height:80px;
+	overflow:hidden;
+	width: 100%;
+	text-align:center;
+}
+h1{
+	color: white;
+	font-size: 80px;
+	margin:0;
+	padding:0;
+	line-height:80px;
+	height:80px;
+	position: relative;
+	font-family: "BigNoodleTitling", sans-serif;
+	text-transform: uppercase;
+	word-spacing: 2px;
+	letter-spacing: 0.05em;
+}
+h1 span{
+	position: relative;
+	display: inline-block;
+	transform: translateY(100%);
+	transition: all 0.25s cubic-bezier(0.65, 0, 0.21, 1.47) 0s;
+}
+
+.titleWrapper.ready h1 span{
+	transform: translateY(0%);
+}
+
+h1.first span{
+	position:relative;
+	z-index:5;
+}
+h1.second span{
+	position:relative;
+	z-index:1;
+}
+
+$num: 1;
+
+@while $num < 20 {
+    h1.first span:nth-of-type(#{$num}) {
+			transition-delay: 0.02s * $num;
+    }
+		h1.second span:nth-of-type(#{$num}) {
+			transition-delay: 0.03s * $num + 0.05;
+    }
+
+    $num: $num + 1;
+}
+
+
+
+
+.titleWrapper.ready:hover h1.first span{
+	transform: translateY(-100%);
+}
+.titleWrapper.ready:hover h1.second span{
+	transform: translateY(-100%);
+}
+
+
+
+/* Navigation */
+
+header{
+    background: rgba(0,0,100,0.5); /* makes it have the blue transparency */
+    height: 950px;
+}
+
+
+.menu li{
+    display: inline-block;
+    margin: 10px 10px; 
+    float: right;
+    margin-top: 25px;
+    
+    
+    
+}
+
+.menu li a{
+    text-decoration: none;
+    color: white;
+    padding:10px 15px;
+    font-family: "BigNoodleTitling";
+    letter-spacing: 5px;
+    border-bottom: 2px solid #fff;
+  
+}
+
+.menu li a:hover{
+    background: coral;
+    border-bottom: 1px solid white;
+    transition: 1.0s ease-in;
+    
+}
+
+.nav{
+    background: rgba(0,0,0,0.5); /* naviagation rectangle */
+    height: 80px;
+    
+}
+/* logo css overwatch logo copy 
+.logo{
+    margin: 10px 50px;
+    height: 60px;
+    border-radius: 100%;
+    border: solid;
+    box-shadow: none;
+    &:: before,
+    &:: after{
+        border-radius: 100%;
+    }
+    
+ 
+        
+}
+*/
+
+
+
+.loreamari{
+    text-align: center;
+    font-size: 50px;
+    font-family: "BigNoodleTitling";
+    
+}
+
+
+
+.whoana{
+    
+    width: 70%;
+    font-family: "BigNoodleTitling";
+    font-size: 20px;
+    text-align: center;
+    margin-left: 15% /* makes the paragraph center */ 
+    
+        
+}
+
+.lore h3 /* makes space between paragraph and who is ana heading */
+{
+    margin-top: 50px;
+    margin-bottom: 35px;
+}
+
+
+
+h3:after{
+    width: 500px;
+    height: 2px;
+    background-color: #2444ab;
+    display: block;
+    content:"";
+    margin: 0 auto;
+    margin-top: 25px;
+}
+
+
+
+
+.circle1{
+    
+    
+    width: 75px;
+    height: 75px;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    box-shadow: none;
+    
+   
+}
+
+.nav button{
+
+    border:none;
+    background-image: url(OWlogo.png);
+    background-size: 70px;
+    background-color: transparent;
+    background-repeat: no-repeat;
+    transform-style: preserve-3d;
+     
+    
+}
+
+.nav button:before{
+    content:'';
+	position: absolute;
+	top: 0px;
+	left: 75;
+	width: 0px;
+	height: 75px;
+	border-radius: 100%;
+    font-size: 35px;
+	
+    visibility: none;
+}
+
+.nav button:hover:before {
+	width: 100%;
+    visibility: visible;
+    content: "Play Overwatch";
+    font-family: "BigNoodleTitling";
+    opacity: 20px;
+    vertical-align: middle;
+    vertical-align: center;
+    color:white;
+    -webkit-text-stroke-width: 0.5px;
+    -webkit-text-stroke-color: black;
+    text-align: center;
+    word-spacing: 100vw;
+    top: 0px;
+    transition: all 1.0s ease-in-out;
+    opacity: 100;
+    
+    
+     
+}
+
+
+.column1{
+    float: left;
+    width: 33.33%;
+    margin-top: 30px;
+    
+}
+
+.column1 h2{
+    text-align: center;
+    font-family: "BigNoodleTitling";
+}
+
+.column1 p{
+    text-align: center;
+    margin-top: 10px;
+    font-family: "BigNoodleTitling";
+    font-size: 20px;
+}
+.column2{
+    float: left;
+    width: 33.33%;
+    margin-top: 30px;
+}
+
+.column2 p{
+    text-align: center;
+    margin-top: 10px;
+    font-family: "BigNoodleTitling";
+    font-size: 20px;
+}
+
+.column2 h2{
+    text-align: center;
+    font-family: "BigNoodleTitling";
+}
+
+
+.column3{
+    float: left;
+    width: 33.33%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.column3 p{
+    text-align: center;
+    margin-top: 10px;
+    font-family: "BigNoodleTitling";
+    font-size: 20px;
+}
+
+.column3 h2{
+    text-align: center;
+    font-family: "BigNoodleTitling";
+}
+
+.row:after{
+    content: "";
+    display: table;
+    clear; both;
+}
+
+/* bg */
+body{
+    background-image: url(owbg.png)
+}
+
+/* Ana Pictures */
+
+.ana-showcase{
+    list-style: none;
+    width: 100%;
+}
+
+.ana-showcase li
+{
+    display: block;
+    width: 25%;
+    float:left;
+}
+
+.anaphoto{
+    width: 100%;
+    margin: 0;
+    overflow: hidden; /* makes the picture don't stretch too much */
+    
+}
+
+.anaphoto img{
+    width: 480px;
+    height: 300px;
+    transform: scale(1.05);
+    transition: all 0.5s;
+    
+}
+
+.anaphoto img:hover{
+    transform: scale(1.15);
+}
+
+.anapics{
+    margin: 60px;
+}
+
+
+/* Ana's Abilities */
+.abilities-container{
+    position: relative;
+    
+}
+
+.abilitiesbg{
+    display: block;
+    width: 1900px;
+    height: 1080px;
+    
+    
+    
+    
+}
+
+
+.abilities-container{
+    display:inline-block;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    
+}
+
+
+.abilities-container h2{
+ font-size: 50px;
+ font-family: "BigNoodleTitling";
+ position: relative; /* relative makes text over image */
+ margin-top: -50%;
+ text-align: center;
+ color: #121f49;
+ font-size: 100px;    
+    
+}
+
+.AbilityInstructions{
+    text-align: center;
+    font-family: "BigNoodleTitling";
+    color: #121f49;
+    font-size: 50px;     
+}
+
+
+.ability1{
+    background-image: url(ability1.png);
+    background-size: 65px;
+    height: 100px;
+    width: 100px;
+    background-color: rgba(18, 31, 73, 0.8);
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    border: 3px solid black;
+    box-shadow: 0px 0px 50px #121f49 ; /* shadow overlay */ 
+    transition: all .2s ease-in-out;
+    @include transition(all 500ms cubic-bezier(0.53, -0.67, 0.73, 0.744)); /* makes the pulsing effect when hover */
+    
+}
+
+.ability1:hover{
+    transform: scale(0.9);
+    @include transition-timing-function(cubic-bezier(0.37, 0.74, 0.15, 1.65));
+     background-color: #121f49;
+    
+    
+}
+
+.ability2{
+    background-image: url(ability2.png);
+    background-size: 60px;
+    height: 100px;
+    width: 100px;
+    background-color: rgba(18, 31, 73, 0.8);
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    border: 3px solid black;
+    box-shadow: 0px 0px 50px #121f49;
+    transition: all .2s ease-in-out;
+    @include transition(all 500ms cubic-bezier(0.53, -0.67, 0.73, 0.744));
+}
+
+
+.ability2:hover{
+    transform: scale(0.9);
+    @include transition-timing-function(cubic-bezier(0.37, 0.74, 0.15, 1.65));
+     background-color: #121f49;
+    
+    
+}
+
+
+
+.ability3{
+    background-image: url(ability3.png);
+    background-size: 80px;
+    height: 100px;
+    width: 100px;
+    background-color: rgba(18, 31, 73, 0.8);
+    background-repeat: no-repeat;
+    border-radius: 50%;
+    background-position: center;
+    border: 3px solid black;
+    box-shadow: 0px 0px 50px #121f49;
+    transition: all .2s ease-in-out;
+    @include transition(all 500ms cubic-bezier(0.53, -0.67, 0.73, 0.744)); 
+}
+
+.ability3:hover{
+    transform: scale(0.9);
+    @include transition-timing-function(cubic-bezier(0.37, 0.74, 0.15, 1.65));
+     background-color: #121f49;
+    
+    
+}
+
+
+.ability4{
+    background-image: url(ability4.png);
+    background-size: 225px;
+    height: 100px;
+    width: 300px;
+    background-color: rgba(18, 31, 73, 0.8);
+    background-repeat: no-repeat;
+    border-radius: 75%;
+    background-position: center;
+    border: 3px solid black;
+    box-shadow: 0px 0px 50px #121f49;
+    transition: all .2s ease-in-out;
+    @include transition(all 500ms cubic-bezier(0.53, -0.67, 0.73, 0.744));
+    
+}
+
+
+.ability4:hover{
+    transform: scale(0.9);
+    @include transition-timing-function(cubic-bezier(0.37, 0.74, 0.15, 1.65));
+     background-color: #121f49;
+    
+    
+}
+
+
+.ability1 , ability2 , abilitty3 , ability4{
+    margin-left: 600px;
+    margin-top: 650px;
+    
+    
+}
+
+/* Rectangle */
+.shape1{
+    max-width: 100%;
+    width: 1900px;
+    height: 400px;
+    background-color: rgba(18, 31, 73, 0.8);
+    margin-top: 100px;
+    z-index: 1px;
+    position: absolute;
+}
+
+#abl1 video{
+    height: 500px;
+    width: 600px;
+    z-index: 1;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 200px;
+    
+  
+    
+    
+}
+
+
+.ability1txt{
+    position: absolute;
+    text-align: center;
+    width: 600px;
+    font-size: 27px;
+    z-index: 10px;
+    margin-left: 55%;
+    margin-top:8%;
+    font-family: "BigNoodleTitling";
+    color: white;
+    z-index: 1;
+   
+    
+}
+
+
+#abl2 video{
+    height: 500px;
+    width: 600px;
+    z-index: 1;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 200px;
+   
+   
+   
+}
+
+.ability2txt{
+    position: absolute;
+    text-align: center;
+    width: 600px;
+    font-size: 27px;
+    z-index: 10px;
+    margin-left: 55%;
+    margin-top:8%;
+    font-family: "BigNoodleTitling";
+    color: white;
+      z-index: 1;
+    
+}
+
+
+#abl3 video{
+    height: 500px;
+    width: 600px;
+    z-index: 1;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 200px;
+    
+   
+}
+
+
+.ability3txt{
+    position: absolute;
+    text-align: center;
+    width: 600px;
+    font-size: 27px;
+    z-index: 10px;
+    margin-left: 55%;
+    margin-top:8%;
+    font-family: "BigNoodleTitling";
+    color: white;
+    z-index: 1;
+    
+}
+
+
+
+
+#abl4 video{
+    height: 500px;
+    width: 600px;
+    z-index: 1;
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 200px;
+      
+   
+}
+
+
+.ability4txt{
+    position: absolute;
+    text-align: center;
+    width: 600px;
+    font-size: 27px;
+    z-index: 10px;
+    margin-left: 55%;
+    margin-top:8%;
+    font-family: "BigNoodleTitling";
+    color: white;
+    z-index: 1;
+}
